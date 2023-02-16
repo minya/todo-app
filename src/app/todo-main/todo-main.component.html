@@ -1,6 +1,8 @@
 <div>
   {{ ntasks() }} tasks left
 </div>
+<input [(ngModel)]="newTaskCaption" type="text" placeholder="What needs to be done?"  />
+<input type="button" value="Add" (click)="addTask(newTaskCaption)" />
 <ng-container *ngFor="let task of tasks">
-  <todo-task [task]="task"></todo-task>
+  <todo-task [task]="task" (onRemoveTask)="doRemoveTask(task)"></todo-task>
 </ng-container>

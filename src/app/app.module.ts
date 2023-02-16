@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,11 +11,12 @@ import { TodoTaskComponent } from './todo-task/todo-task.component';
   declarations: [
     AppComponent,
     TodoMainComponent,
-    TodoTaskComponent
+    TodoTaskComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

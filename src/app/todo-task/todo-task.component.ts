@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { TasksServiceService } from 'src/api/tasks-service.service';
 import { Task } from 'src/models/tasks';
 
 @Component({
@@ -9,9 +10,14 @@ import { Task } from 'src/models/tasks';
 })
 export class TodoTaskComponent {
 
+  constructor(private _tasksService: TasksServiceService) { }
+
   remove(task: Task) {
-    throw new Error('Not implemented');
+    this.onRemoveTask.emit(task);
   }
+
+  @Output()
+  onRemoveTask = new EventEmitter<Task>();
 
   @Input()
   task!: Task;
