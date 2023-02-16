@@ -1,0 +1,19 @@
+.task-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+
+  .task-title {
+    flex: 5;
+  }
+  
+  .task-checkbox {
+    flex: 1;
+  }
+
+  .task-delete {
+    flex: 1;
+  }
+}

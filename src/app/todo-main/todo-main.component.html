@@ -1,0 +1,6 @@
+<div>
+  {{ ntasks() }} tasks left
+</div>
+<ng-container *ngFor="let task of tasks">
+  <todo-task [task]="task"></todo-task>
+</ng-container>
