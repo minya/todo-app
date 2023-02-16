@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { TasksServiceService } from 'src/api/tasks-service.service';
 import { Task } from 'src/models/tasks';
 
 @Component({
@@ -7,10 +8,20 @@ import { Task } from 'src/models/tasks';
   styleUrls: ['./todo-main.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TodoMainComponent {
+export class TodoMainComponent implements OnInit {
   tasks: Task[] = [];
 
-  ntasks() {
+  constructor(private _tasksService: TasksServiceService) { }
+
+  ntasks(): number {
     return this.tasks.length;
+  }
+
+  ngOnInit(): void {
+    this._tasksService.getTasks().subscribe({
+      next: (tasks) => {
+        this.tasks = tasks;
+      }
+    });
   }
 }
