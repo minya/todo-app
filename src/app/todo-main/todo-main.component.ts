@@ -15,15 +15,15 @@ export class TodoMainComponent implements OnInit {
   constructor (private _store: TodoMainStateStoreService) { }
 
   onRemoveTask(task: Task) {
-    this._store.removeTask(task);
+    this._store.dispatch({ type: "REMOVE_TASK", payload: task });
   }
 
   onAddTask($event: string) {
-    this._store.addTask($event);
+    this._store.dispatch({ type: "ADD_TASK", payload: $event });
   }
 
   ngOnInit(): void {
-    this._store.fetchTasks();
+    this._store.dispatch({ type: "FETCH_TASKS" })
   }
 }
 
