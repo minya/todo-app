@@ -9,7 +9,7 @@ import { TodoMainState } from 'src/models/todo-main-state';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoMainPureComponent {
-  @Input() state!: TodoMainState;
+  @Input() state: TodoMainState;
   newTaskCaption: string = '';
 
   @Output()

@@ -1,5 +1,5 @@
 <todo-main-pure 
   (onAddTask)="onAddTask($event)"
   (onRemoveTask)="onRemoveTask($event)"
-  [state]="state">
+  [state]="state$ | async">
 ></todo-main-pure>
